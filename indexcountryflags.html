@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Country Flag Display</title>
+  <style>
+    img {
+      height: 100px;
+      margin: 10px;
+    }
+  </style>
+  <script>
+    function showFlag() {
+      var countryInput = document.getElementById("country-input").value.toLowerCase();
+      var flagImg = document.getElementById("flag-img");
+
+      var flagMapping = {
+        usa: "https://www.countryflags.io/us/flat/64.png",
+        uk: "https://www.countryflags.io/gb/flat/64.png",
+        canada: "https://www.countryflags.io/ca/flat/64.png",
+        australia: "https://www.countryflags.io/au/flat/64.png",
+        germany: "https://www.countryflags.io/de/flat/64.png"
+        // Add more country-flag URL mappings as needed
+      };
+
+      if (flagMapping.hasOwnProperty(countryInput)) {
+        flagImg.src = flagMapping[countryInput];
+        flagImg.style.display = "block";
+      } else {
+        flagImg.style.display = "none";
+        alert("No flag available for the entered country!");
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Country Flag Display</h1>
+  <label for="country-input">Enter a country:</label>
+  <input type="text" id="country-input">
+  <button onclick="showFlag()">Show Flag</button>
+  <br>
+  <img id="flag-img" style="display: none;">
+</body>
+</html>
+  
